@@ -39,7 +39,7 @@ public class SpendDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_TABLE_LOCATION = "CREATE TABLE " + SpendContract.LocationEntry.TABLE_NAME
                 + "(" + SpendContract.LocationEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + SpendContract.LocationEntry.COLUMN_NAME + " TEXT, "
-                + SpendContract.LocationEntry.COLUMN_LAT + " TEXT "
+                + SpendContract.LocationEntry.COLUMN_LAT + " TEXT, "
                 + SpendContract.LocationEntry.COLUMN_LONG + " TEXT);";
 
         db.execSQL(SQL_CREATE_TABLE_CATEGORY);

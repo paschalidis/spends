@@ -66,7 +66,7 @@ public class Spend {
 
     public String getDateToString(){
 
-        DateFormat sdf = new SimpleDateFormat("dd/MM  /yyyy HH:mm:ss");
+        DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String  dateString = sdf.format(this.getDateFormat());
         return dateString;
     }

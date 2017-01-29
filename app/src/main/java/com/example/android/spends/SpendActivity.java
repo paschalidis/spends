@@ -13,10 +13,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.android.spends.Database.CategoryDB;
+import com.example.android.spends.Database.LocationDB;
 import com.example.android.spends.Database.SpendContract;
 import com.example.android.spends.Database.SpendDB;
 import com.example.android.spends.Database.SpendDbHelper;
 import com.example.android.spends.Models.Category;
+import com.example.android.spends.Models.Location;
 import com.example.android.spends.Models.Spend;
 
 import java.util.ArrayList;
@@ -79,7 +81,24 @@ public class SpendActivity extends AppCompatActivity {
         //Create new category entry
         if(category.getId() == 0){
             CategoryDB categoryDB = new CategoryDB(this);
-            category = categoryDB.createCategory(category);
+            try{
+                category = categoryDB.createCategory(category);
+            } catch (SQLiteException e){
+                Toast.makeText(this, "Internal DB Error On Category Creation", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        //Create new Location
+        Location location = new Location();
+        location.setName(locationString);
+        location.setLatitude("40.741895");
+        location.setLongitude("-73.989308");
+
+        LocationDB locationDB = new LocationDB(this);
+        try{
+            location = locationDB.createLocation(location);
+        } catch (SQLiteException e){
+            Toast.makeText(this, "Internal DB Error On Location Creation", Toast.LENGTH_SHORT).show();
         }
 
         // divide by 1000 gets you to Unix Timestamp
@@ -91,13 +110,14 @@ public class SpendActivity extends AppCompatActivity {
         spend.setDescription(descriptionString);
         spend.setCategoryID(category.getId());
         spend.setDate(date);
+        spend.setLocationID(location.getId());
 
         SpendDB spendDB = new SpendDB(this);
 
         try{
             spendDB.createSpend(spend);
         }catch (SQLiteException e){
-            Toast.makeText(this, "Internal DB Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Internal DB Error On Spend Creation", Toast.LENGTH_SHORT).show();
         }
 
         finish();

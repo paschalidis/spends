@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Spends</string>
+    <string name="create_spend">+ Spends</string>
+    <string name="create_category">+ Category</string>
+    <string name="category_title">Title</string>
+    <string name="category_description">Description</string>
+    <string name="category_save">Save</string>
+    <string name="spend_category_title">Category Title</string>
+    <string name="spend_create_category">Create New Category</string>
+    <string name="spend_cost_amount">Cost Amount</string>
+    <string name="spend_cost_description">Cost Description</string>
+    <string name="spend_location_type">Location Name</string>
+    <string name="spend_save_button">Save</string>
+</resources>

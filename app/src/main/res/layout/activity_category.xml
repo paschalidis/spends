@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_category"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.spends.MainActivity">
+
+
+    <EditText
+        android:id="@+id/category_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/category_title"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/category_description"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/category_description" />
+
+    <Button
+        android:id="@+id/save_category_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/category_save"
+        android:onClick="createCategory"/>
+</LinearLayout>

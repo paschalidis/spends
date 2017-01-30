@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.spends.Database.CategoryDB;
@@ -25,14 +26,23 @@ import java.util.ArrayList;
 
 import static android.R.attr.id;
 import static android.R.attr.lockTaskMode;
+import static android.R.attr.theme;
 
 public class SpendActivity extends AppCompatActivity {
+
+    private String latitude;
+    private String longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spend);
         setCategorySpinnerData();
+
+        this.latitude = "40.741895";
+        this.longitude = "-73.989308";
+
+        this.setLocationName();
     }
 
     public void createSpend(View view) {
@@ -91,8 +101,8 @@ public class SpendActivity extends AppCompatActivity {
         //Create new Location
         Location location = new Location();
         location.setName(locationString);
-        location.setLatitude("40.741895");
-        location.setLongitude("-73.989308");
+        location.setLatitude(this.latitude);
+        location.setLongitude(this.longitude);
 
         LocationDB locationDB = new LocationDB(this);
         try{
@@ -138,5 +148,17 @@ public class SpendActivity extends AppCompatActivity {
         Spinner categorySpinner = (Spinner) findViewById(R.id.category_spinner);
         categorySpinner.setAdapter(adapter);
 
+    }
+
+    private void setLocationName(){
+        LocationDB locationDB = new LocationDB(this);
+        Location location = locationDB.getLocation(this.latitude, this.longitude);
+
+        if(location.getId() == null){
+            return;
+        }
+
+        EditText locationEdit = (EditText) findViewById(R.id.location_edit_text);
+        locationEdit.setText(location.getName());
     }
 }

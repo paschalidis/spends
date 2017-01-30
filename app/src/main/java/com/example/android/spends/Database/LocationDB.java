@@ -47,8 +47,36 @@ public class LocationDB {
         SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
-        String sqlQuery = "SELECT * FROM " + LocationEntry.TABLE_NAME + " WHERE lat = " + latitude
-                            + " AND long = " + longitude;
+        String sqlQuery = "SELECT * FROM " + LocationEntry.TABLE_NAME + " WHERE " +
+                          LocationEntry.COLUMN_LAT + " = " + latitude + " AND " +
+                          LocationEntry.COLUMN_LONG + " = " + longitude;
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        Location location = new Location();
+
+
+        if(cursor.getCount() > 0)
+        {
+            cursor.moveToNext();
+            location.setId(cursor.getInt(cursor.getColumnIndex(LocationEntry._ID)));
+            location.setName(cursor.getString(cursor.getColumnIndex(LocationEntry.COLUMN_NAME)));
+            location.setLatitude(cursor.getString(cursor.getColumnIndex(LocationEntry.COLUMN_LAT)));
+            location.setLongitude(cursor.getString(cursor.getColumnIndex(LocationEntry.COLUMN_LONG)));
+        }
+
+        cursor.close();
+
+        return location;
+    }
+
+    public Location getLocationById(Integer id){
+        SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        String sqlQuery = "SELECT * FROM " + LocationEntry.TABLE_NAME + " WHERE "
+                + LocationEntry._ID  + " = " + id;
+
         Cursor cursor = db.rawQuery(sqlQuery, null);
 
         Location location = new Location();

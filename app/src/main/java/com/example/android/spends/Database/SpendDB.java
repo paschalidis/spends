@@ -88,4 +88,30 @@ public class SpendDB {
 
         return  cursor;
     }
+
+    public Spend getSpend(Integer id){
+        SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        String sqlQuery = "SELECT * FROM " + SpendEntry.TABLE_NAME + " WHERE " + SpendEntry._ID
+                        + " = " + id;
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        Spend spend = new Spend();
+
+        if(cursor.getCount() > 0)
+        {
+            cursor.moveToNext();
+            spend.setId(cursor.getInt(cursor.getColumnIndex(SpendEntry._ID)));
+            spend.setAmount(cursor.getString(cursor.getColumnIndex(SpendEntry.COLUMN_AMOUNT)));
+            spend.setDescription(cursor.getString(cursor.getColumnIndex(SpendEntry.COLUMN_DESCRIPTION)));
+            spend.setCategoryID(cursor.getInt(cursor.getColumnIndex(SpendEntry.COLUMN_CATEGORY_ID)));
+            spend.setLocationID(cursor.getInt(cursor.getColumnIndex(SpendEntry.COLUMN_LOCATION_ID)));
+            spend.setDate(cursor.getInt(cursor.getColumnIndex(SpendEntry.COLUMN_DATE)));
+        }
+
+        cursor.close();
+
+        return spend;
+    }
 }

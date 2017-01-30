@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 
 import com.example.android.spends.Models.Category;
 import com.example.android.spends.Database.SpendContract.CategoryEntry;
+import com.example.android.spends.Models.Spend;
 
 import java.util.ArrayList;
 
@@ -72,5 +73,29 @@ public class CategoryDB {
         cursor.close();
 
         return categoryList;
+    }
+
+    public Category getCategory(Integer id){
+        SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        String sqlQuery = "SELECT * FROM " + CategoryEntry.TABLE_NAME + " WHERE "
+                + CategoryEntry._ID  + " = " + id;
+
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        Category category = new Category();
+
+        if(cursor.getCount() > 0)
+        {
+            cursor.moveToNext();
+            category.setId(cursor.getInt(cursor.getColumnIndex(CategoryEntry._ID)));
+            category.setTitle(cursor.getString(cursor.getColumnIndex(CategoryEntry.COLUMN_TITLE)));
+            category.setDescription(cursor.getString(cursor.getColumnIndex(CategoryEntry.COLUMN_DESCRIPTION)));
+        }
+
+        cursor.close();
+
+        return category;
     }
 }

@@ -125,12 +125,13 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/spend_view_edit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#b2d4a4"
             android:gravity="center"
+            android:onClick="editSpend"
             android:text="@string/spend_view_edit"
             android:textSize="24sp" />
 
@@ -140,8 +141,8 @@
             android:layout_weight="1"
             android:background="#e2abaf"
             android:gravity="center"
-            android:text="@string/spend_view_delete"
             android:onClick="deleteSpend"
+            android:text="@string/spend_view_delete"
             android:textSize="24sp" />
     </LinearLayout>
 

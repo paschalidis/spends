@@ -1,9 +1,11 @@
 package com.example.android.spends;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ import com.example.android.spends.Database.SpendDB;
 import com.example.android.spends.Models.Category;
 import com.example.android.spends.Models.Location;
 import com.example.android.spends.Models.Spend;
+
+import static android.R.attr.id;
 
 public class SpendDetailsActivity extends AppCompatActivity {
 
@@ -69,5 +73,11 @@ public class SpendDetailsActivity extends AppCompatActivity {
 
         finish();
         Toast.makeText(this, "Spend Successfully Deleted", Toast.LENGTH_SHORT).show();
+    }
+
+    public void editSpend(View view){
+        Intent intent = new Intent(SpendDetailsActivity.this, SpendEditActivity.class);
+        intent.putExtra(SpendEditActivity.SPEND_EDIT_ID, (int) this.spendId);
+        startActivity(intent);
     }
 }

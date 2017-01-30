@@ -79,6 +79,11 @@ public class SpendDB {
         return spendList;
     }
 
+    /**
+     * Get spend Cursor
+     *
+     * @return
+     */
     public Cursor getSpendsCursor(){
         SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -89,6 +94,12 @@ public class SpendDB {
         return  cursor;
     }
 
+    /**
+     * Get One Spend
+     *
+     * @param id
+     * @return
+     */
     public Spend getSpend(Integer id){
         SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -113,5 +124,27 @@ public class SpendDB {
         cursor.close();
 
         return spend;
+    }
+
+    /**
+     * Delete spend
+     *
+     * @param spendId
+     * @return
+     */
+    public Boolean deleteSpend(Integer spendId){
+        SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        // Define 'where' part of query.
+        String selection = SpendEntry._ID + " = ?";
+
+        // Specify arguments in placeholder order.
+        String[] selectionArgs = { spendId.toString() };
+
+        // Issue SQL statement.
+        db.delete(SpendEntry.TABLE_NAME, selection, selectionArgs);
+
+        return true;
     }
 }

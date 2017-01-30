@@ -141,6 +141,7 @@
             android:background="#e2abaf"
             android:gravity="center"
             android:text="@string/spend_view_delete"
+            android:onClick="deleteSpend"
             android:textSize="24sp" />
     </LinearLayout>
 

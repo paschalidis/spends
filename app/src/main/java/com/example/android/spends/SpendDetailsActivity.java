@@ -1,9 +1,12 @@
 package com.example.android.spends;
 
+import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.spends.Database.CategoryDB;
 import com.example.android.spends.Database.LocationDB;
@@ -15,6 +18,7 @@ import com.example.android.spends.Models.Spend;
 public class SpendDetailsActivity extends AppCompatActivity {
 
     public static final String SPEND_NO = "spend_number";
+    private Integer spendId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class SpendDetailsActivity extends AppCompatActivity {
         setTitle("Spend Details");
 
         Integer spendNo = (Integer) getIntent().getExtras().get(SPEND_NO);
+        this.spendId = spendNo;
         this.fillSpendDetails(spendNo);
     }
 
@@ -51,5 +56,18 @@ public class SpendDetailsActivity extends AppCompatActivity {
 
         TextView spendLocation = (TextView) findViewById(R.id.spend_view_location);
         spendLocation.setText(location.getName());
+    }
+
+    public void deleteSpend(View view){
+        SpendDB spendDB = new SpendDB(this);
+
+        try{
+            spendDB.deleteSpend(this.spendId);
+        }catch (SQLiteException e){
+            Toast.makeText(this, "Internal DB Error On Spend Delete", Toast.LENGTH_SHORT).show();
+        }
+
+        finish();
+        Toast.makeText(this, "Spend Successfully Deleted", Toast.LENGTH_SHORT).show();
     }
 }

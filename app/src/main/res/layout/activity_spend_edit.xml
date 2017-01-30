@@ -1,54 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_spend_edit"
+    android:id="@+id/activity_spend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.spends.SpendEditActivity">
+    android:background="#acdde4"
+    android:orientation="vertical"
+    tools:context="com.example.android.spends.MainActivity">
+
+    <TextView
+        android:text="@string/spend_view_category"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/textView2"
+        android:layout_weight="1" />
 
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="34dp"
-        android:id="@+id/spinner" />
+        android:id="@+id/spend_edit_spinner" />
+
+    <TextView
+        android:text="@string/spend_view_amount"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:ems="10"
-        android:layout_below="@+id/spinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="56dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="74dp"
-        android:id="@+id/editText" />
+        android:id="@+id/spend_edit_amount" />
+
+    <TextView
+        android:text="@string/spend_view_description"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:ems="10"
-        android:layout_below="@+id/editText"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_marginTop="80dp"
-        android:id="@+id/editText2" />
+        android:id="@+id/spend_edit_description" />
 
     <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:text="@string/spend_edit_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:onClick="updateSpend"
         android:id="@+id/button" />
-</RelativeLayout>
+</LinearLayout>

@@ -18,4 +18,5 @@
     <string name="spend_view_location">Location</string>
     <string name="spend_view_edit">Edit</string>
     <string name="spend_view_delete">Delete</string>
+    <string name="spend_edit_button">Update</string>
 </resources>

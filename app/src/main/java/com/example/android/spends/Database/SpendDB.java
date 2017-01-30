@@ -147,4 +147,32 @@ public class SpendDB {
 
         return true;
     }
+
+    /**
+     *
+     * @param spend
+     * @return
+     */
+    public boolean updateSpend(Spend spend){
+        SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(SpendEntry.COLUMN_CATEGORY_ID, spend.getCategoryID());
+        values.put(SpendEntry.COLUMN_AMOUNT, spend.getAmount());
+        values.put(SpendEntry.COLUMN_DESCRIPTION, spend.getDescription());
+
+        // Which row to update, based on the title
+        String selection = SpendEntry._ID + " = ?";
+        String[] selectionArgs = { spend.getId().toString() };
+
+        int count = db.update(
+                SpendEntry.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+
+        return true;
+    }
 }

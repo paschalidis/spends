@@ -33,12 +33,17 @@ public class SpendDetailsActivity extends AppCompatActivity {
 
         Integer spendNo = (Integer) getIntent().getExtras().get(SPEND_NO);
         this.spendId = spendNo;
-        this.fillSpendDetails(spendNo);
     }
 
-    private void fillSpendDetails(Integer spendId){
+    @Override
+    protected void onStart(){
+        super.onStart();
+        this.fillSpendDetails();
+    }
+
+    private void fillSpendDetails(){
         SpendDB spendDB = new SpendDB(this);
-        Spend spend = spendDB.getSpend(spendId);
+        Spend spend = spendDB.getSpend(this.spendId);
 
         CategoryDB categoryDB = new CategoryDB(this);
         Category category = categoryDB.getCategory(spend.getCategoryID());

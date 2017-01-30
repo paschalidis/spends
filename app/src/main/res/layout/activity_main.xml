@@ -7,13 +7,6 @@
     android:orientation="vertical"
     tools:context="com.example.android.spends.MainActivity">
 
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:background="#ee8e1382"-->
-    <!--android:text="Hello World!" />-->
-
     <ListView
         android:id="@+id/spend_list_view"
         android:layout_width="match_parent"

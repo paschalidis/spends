@@ -8,35 +8,33 @@
     tools:context="com.example.android.spends.MainActivity">
 
     <TextView
-        android:text="@string/date_from"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/textView3" />
+        android:text="@string/date_from" />
 
     <CalendarView
+        android:id="@+id/date_from"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
-        android:id="@+id/calendarView3" />
+        android:layout_weight="10" />
 
     <TextView
-        android:text="@string/date_to"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/textView4" />
+        android:text="@string/date_to" />
 
     <CalendarView
+        android:id="@+id/date_to"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
-        android:id="@+id/calendarView4" />
+        android:layout_weight="10" />
 
     <Button
-        android:text="@string/date_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:id="@+id/button2" />
+        android:onClick="orderedList"
+        android:text="@string/date_list" />
 </LinearLayout>

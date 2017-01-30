@@ -22,5 +22,5 @@
     <string name="dateview">dateview</string>
     <string name="date_from">From</string>
     <string name="date_to">To</string>
-    <string name="date_list">Button</string>
+    <string name="date_list">Show List</string>
 </resources>

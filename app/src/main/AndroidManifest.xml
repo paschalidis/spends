@@ -19,7 +19,8 @@
         <activity android:name=".SpendActivity" />
         <activity android:name=".SpendDetailsActivity" />
         <activity android:name=".SpendEditActivity" />
-        <activity android:name=".DatePickerActivity"></activity>
+        <activity android:name=".DatePickerActivity" />
+        <activity android:name=".OrderedListActivity"></activity>
     </application>
 
 </manifest>

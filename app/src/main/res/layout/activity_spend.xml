@@ -4,6 +4,7 @@
     android:id="@+id/activity_spend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#acdde4"
     android:orientation="vertical"
     tools:context="com.example.android.spends.MainActivity">
 
@@ -42,8 +43,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="@string/spend_cost_amount" />
+        android:hint="@string/spend_cost_amount"
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/description_edit_text"
@@ -51,8 +52,8 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/spend_cost_description" />
+        android:hint="@string/spend_cost_description"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/location_edit_text"
@@ -60,14 +61,14 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/spend_location_type" />
+        android:hint="@string/spend_location_type"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/spend_save"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="@string/spend_save_button"
-        android:onClick="createSpend"/>
+        android:onClick="createSpend"
+        android:text="@string/spend_save_button" />
 </LinearLayout>

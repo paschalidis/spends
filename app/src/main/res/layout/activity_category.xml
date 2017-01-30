@@ -4,6 +4,7 @@
     android:id="@+id/activity_category"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#acdde4"
     android:orientation="vertical"
     tools:context="com.example.android.spends.MainActivity">
 
@@ -23,14 +24,14 @@
         android:layout_height="0dp"
         android:layout_weight="8"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/category_description" />
+        android:hint="@string/category_description"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/save_category_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="@string/category_save"
-        android:onClick="createCategory"/>
+        android:onClick="createCategory"
+        android:text="@string/category_save" />
 </LinearLayout>

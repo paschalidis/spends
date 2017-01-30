@@ -78,4 +78,14 @@ public class SpendDB {
 
         return spendList;
     }
+
+    public Cursor getSpendsCursor(){
+        SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        Cursor cursor;
+        cursor = db.query(SpendEntry.TABLE_NAME, null, null, null, null, null, null, null);
+
+        return  cursor;
+    }
 }

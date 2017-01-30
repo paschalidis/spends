@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CategoryActivity" />
-        <activity android:name=".SpendActivity"></activity>
+        <activity android:name=".SpendActivity" />
+        <activity android:name=".SpendDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -39,6 +39,8 @@ public class SpendActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spend);
         setCategorySpinnerData();
 
+        setTitle("Create Spend");
+
         this.latitude = "40.741895";
         this.longitude = "-73.989308";
 

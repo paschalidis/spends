@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(spendActivity);
     }
 
+    public void dateView(View view){
+        Intent datePickerActivity = new Intent(this, DatePickerActivity.class);
+        startActivity(datePickerActivity);
+    }
+
     private void listSpends(){
         SpendDB spendDB = new SpendDB(this);
         Cursor cursor = spendDB.getSpendsCursor();

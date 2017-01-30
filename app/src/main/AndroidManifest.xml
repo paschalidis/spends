@@ -18,7 +18,8 @@
         <activity android:name=".CategoryActivity" />
         <activity android:name=".SpendActivity" />
         <activity android:name=".SpendDetailsActivity" />
-        <activity android:name=".SpendEditActivity"></activity>
+        <activity android:name=".SpendEditActivity" />
+        <activity android:name=".DatePickerActivity"></activity>
     </application>
 
 </manifest>

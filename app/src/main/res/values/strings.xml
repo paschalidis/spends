@@ -19,4 +19,8 @@
     <string name="spend_view_edit">Edit</string>
     <string name="spend_view_delete">Delete</string>
     <string name="spend_edit_button">Update</string>
+    <string name="dateview">dateview</string>
+    <string name="date_from">From</string>
+    <string name="date_to">To</string>
+    <string name="date_list">Button</string>
 </resources>

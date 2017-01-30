@@ -104,6 +104,20 @@ public class SpendDB {
         SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
+        /*
+        SELECT *,
+        CAST(amount AS DECIMAL (10, 2)) AS _amount 
+        FROM spends
+        WHERE spends.date >= z
+        AND spends.date <= c
+        GROUP BY spends.category.id
+        ORDER BY _amount DESC
+        
+        String sqlQuery = "SELECT * FROM " + SpendEntry.TABLE_NAME + " WHERE " + SpendEntry._ID
+                        + " = " + id;
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+        */
+        
         // Filter results WHERE "title" = 'My Title'
         String selection = SpendEntry.COLUMN_DATE + " BETWEEN ?" + " AND " + " ?";
 

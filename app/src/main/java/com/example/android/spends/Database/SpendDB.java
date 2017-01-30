@@ -95,6 +95,36 @@ public class SpendDB {
     }
 
     /**
+     * Get ordered list with date picker
+     * @param dateFrom
+     * @param dateTo
+     * @return
+     */
+    public Cursor getOrderedCursor(Integer dateFrom, Integer dateTo){
+        SpendDbHelper mDbHelper = new SpendDbHelper(this.context);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        // Filter results WHERE "title" = 'My Title'
+        String selection = SpendEntry.COLUMN_DATE + " BETWEEN ?" + " AND " + " ?";
+
+        String[] selectionArgs = { dateFrom.toString(), dateTo.toString() };
+
+        // How you want the results sorted in the resulting Cursor
+        String sortOrder = SpendEntry.COLUMN_AMOUNT + " DESC";
+
+        Cursor cursor;
+        cursor = db.query(SpendEntry.TABLE_NAME,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                sortOrder);
+
+        return  cursor;
+    }
+
+    /**
      * Get One Spend
      *
      * @param id

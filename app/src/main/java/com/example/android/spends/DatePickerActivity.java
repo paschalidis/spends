@@ -25,6 +25,8 @@ public class DatePickerActivity extends AppCompatActivity {
         long to = calendarTo.getDate() / 1000L;
 
         Intent orderedListActivity = new Intent(this, OrderedListActivity.class);
+        orderedListActivity.putExtra(OrderedListActivity.DATE_FROM, (int) from);
+        orderedListActivity.putExtra(OrderedListActivity.DATE_TO, (int) to);
         startActivity(orderedListActivity);
     }
 }
